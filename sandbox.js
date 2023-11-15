@@ -1,24 +1,29 @@
+// explicit types
+var character;
+var age;
+var isLoggedIn;
+age = 30;
+isLoggedIn = true;
 // arrays
-var names = ["luigi", "mario", "yoshi"];
-names.push("toad");
-var numbers = [10, 20, 30, 40];
-numbers.push(25);
-var mixed = ["ken", 3, "chun-li", 8, 9];
-mixed.push("sandburg");
-mixed.push(41);
+var ninjas = []; // can only be an array of strings
+// if we don't set as an empty array, calling push() will result in an error
+ninjas = ["yoshi", "mario"];
+ninjas.push("luigi");
+// union types
+// array of strings and numbers
+var mixed = [];
+mixed.push("hello");
+mixed.push(20);
+var uid;
+uid = 123;
+uid = "123";
 // objects
-// can't change type of attribute, or even add a new key!
-var ninja = {
+var ninjaOne;
+ninjaOne = { name: "yoshi", age: 30 };
+// set the object type more specifically
+var ninjaTwo;
+ninjaTwo = {
     name: "mario",
-    belt: "black",
-    age: 30,
-};
-ninja.age = 40;
-ninja.name = "ryu";
-// you can redefine as long as it's the same type
-// must match the structure of the initial object
-ninja = {
-    name: "yoshi",
-    belt: "organge",
-    age: 40,
+    age: 20,
+    beltColor: "Black",
 };

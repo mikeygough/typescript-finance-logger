@@ -1,29 +1,40 @@
+// explicit types
+let character: string;
+let age: number;
+let isLoggedIn: boolean;
+
+age = 30;
+isLoggedIn = true;
+
 // arrays
-let names = ["luigi", "mario", "yoshi"];
-names.push("toad");
+let ninjas: string[] = []; // can only be an array of strings
+// if we don't set as an empty array, calling push() will result in an error
+ninjas = ["yoshi", "mario"];
+ninjas.push("luigi");
 
-let numbers = [10, 20, 30, 40];
-numbers.push(25);
+// union types
+// array of strings and numbers
+let mixed: (string | number)[] = [];
+mixed.push("hello");
+mixed.push(20);
 
-let mixed = ["ken", 3, "chun-li", 8, 9];
-mixed.push("sandburg");
-mixed.push(41);
+let uid: string | number;
+uid = 123;
+uid = "123";
 
 // objects
-// can't change type of attribute, or even add a new key!
-let ninja = {
-  name: "mario",
-  belt: "black",
-  age: 30,
+let ninjaOne: object;
+ninjaOne = { name: "yoshi", age: 30 };
+
+// set the object type more specifically
+let ninjaTwo: {
+  name: string;
+  age: number;
+  beltColor: string;
 };
 
-ninja.age = 40;
-ninja.name = "ryu";
-
-// you can redefine as long as it's the same type
-// must match the structure of the initial object
-ninja = {
-  name: "yoshi",
-  belt: "organge",
-  age: 40,
+ninjaTwo = {
+  name: "mario",
+  age: 20,
+  beltColor: "Black",
 };
