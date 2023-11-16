@@ -1,22 +1,30 @@
-// OLD WAY
+// Function Signatures
 
-// const logDetails = (uid: string | number, item: string) => {
-//   console.log(`${item} has a uid of ${uid}`);
-// }
+// example 1
+let greet: (a: string, b: string) => void;
 
-// const greet = (user: {name: string, uid: string | number}) => {
-//   console.log(`${user.name} says hello`);
-// }
-
-// NEW WAY - Type Alias
-type StringOrNum = string | number;
-type objWithName = { name: string; uid: StringOrNum };
-
-const logDetails = (uid: StringOrNum, item: string) => {
-  console.log(`${item} has a uid of ${uid}`);
+greet = (name: string, greeting: string) => {
+  console.log(`${name} says ${greeting}`);
 };
 
-// this is nice!
-const greet = (user: objWithName) => {
-  console.log(`${user.name} says hello`);
+// example 2
+let calc: (a: number, b: number, c: string) => number;
+
+// we need this else... otherwise the function could return nothing,
+// which wouldn't match our function signature
+calc = (numOne: number, numTwo: number, action: string): number => {
+  if (action === "add") {
+    return numOne + numTwo;
+  } else {
+    return numOne - numTwo;
+  }
+};
+
+// example 3
+let logDetails: (obj: { name: string; age: number }) => void;
+
+type person = { name: string; age: number };
+
+logDetails = (ninja: person) => {
+  console.log(`${ninja.name} is ${ninja.age} years old`);
 };
