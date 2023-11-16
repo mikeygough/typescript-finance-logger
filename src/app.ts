@@ -1,25 +1,4 @@
-// classes
-// access modifiers: public, private readonly
-// all properties all public by default
-// private properties can be accessed inside the class but can't be accessed outside the class directly
-// readonly attributes can be accessed inside / outside the class but can't be changed.
-
-class Invoice {
-  // readonly client: string;
-  // private details: string;
-  // public amount: number;
-
-  constructor(
-    // this is a shorthand, but it only works if you're using access modifiers
-    readonly client: string,
-    private details: string,
-    public amount: number,
-  ){}
-
-  format() {
-    return `${this.client} owes £${this.amount} for ${this.details}`;
-  }
-}
+import { Invoice } from "./classes/invoice.js";
 
 const invOne = new Invoice("mario", "work on the mario website", 250);
 const invTwo = new Invoice("luigi", "work on the luigi website", 300);
