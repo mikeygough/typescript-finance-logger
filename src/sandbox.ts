@@ -1,30 +1,22 @@
-// notice the need for capital F
-let greet: Function;
+// OLD WAY
 
-greet = () => {
-  console.log('hello, again');
-}
-
-
-// the ? makes the argument optional
-// const add = (a: number, b: number, c?: number | string) => {
-//   console.log(a + b);
+// const logDetails = (uid: string | number, item: string) => {
+//   console.log(`${item} has a uid of ${uid}`);
 // }
 
-// setting a default parameters requires removing the ?
-// best practice to put default parameters at the end
-// notice that this function returns void (hover over)
-// if we don't result a value, the function by default returns void.
-// it represents a lack of return value
-const add = (a: number, b: number, c: number | string = 10) => {
-  console.log(a + b);
-}
+// const greet = (user: {name: string, uid: string | number}) => {
+//   console.log(`${user.name} says hello`);
+// }
 
-// override the default value
-add(5, 10, 20);
+// NEW WAY - Type Alias
+type StringOrNum = string | number;
+type objWithName = { name: string; uid: StringOrNum };
 
-const minus = (a: number, b: number): number => {
-  return a - b;
-}
+const logDetails = (uid: StringOrNum, item: string) => {
+  console.log(`${item} has a uid of ${uid}`);
+};
 
-let result = minus(10, 7);
+// this is nice!
+const greet = (user: objWithName) => {
+  console.log(`${user.name} says hello`);
+};
